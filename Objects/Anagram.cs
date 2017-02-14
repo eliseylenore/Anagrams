@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Anagrams.Objects
 {
   public class Anagram
   {
     private string _input;
-    public string _output;
-    public char[] _inputArray = new char[]{};
+    public string _output = "";
+    public string _reverseOutput ="";
+    public List<char> _inputList = new List<char>{};
 
     public Anagram (string newInput)
     {
@@ -23,15 +25,50 @@ namespace Anagrams.Objects
       _input = MyInput;
     }
 
-    public char[] SplitArray()
+    public List<string> Randomize()
     {
-      _inputArray = _input.ToCharArray();
-      return _inputArray;
+      char[] inputArray = _input.ToCharArray();
+      foreach (char letter in inputArray)
+      {
+        _inputList.Add(letter);
+      };
+      var result = _inputList.Select(c => c.ToString()).ToList();
+      result.Sort();
+      return result;
     }
 
-    // public string Randomize()
-    // {
-    //
-    // }
+    public string RandomizeString()
+    {
+      char[] inputArray = _input.ToCharArray();
+      foreach (char letter in inputArray)
+      {
+        _inputList.Add(letter);
+      };
+      var result = _inputList.Select(c => c.ToString()).ToList();
+      result.Sort();
+      _output = string.Join( "", result.ToArray() );
+      return _output;
+    }
+
+    public string RandomizeReverseString()
+    {
+      char[] inputArray = _input.ToCharArray();
+      foreach (char letter in inputArray)
+      {
+        _inputList.Add(letter);
+      };
+      var result = _inputList.Select(c => c.ToString()).ToList();
+      result.Reverse();
+      _resverseOutput = string.Join( "", result.ToArray() );
+      return _resverseOutput;
+    }
+
+    public bool Check(string userString)
+    {
+      if (userString == _output)
+      {return true;}
+      else
+      {return false;}
+    }
   }
 }
