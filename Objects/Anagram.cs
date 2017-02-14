@@ -34,7 +34,7 @@ namespace Anagrams.Objects
       {
         _inputList.Add(letter);
       };
-      var result = _inputList.Select(c => c.ToString()).ToList();
+      var result = _inputList.Select(c => c.ToString()).Distinct().ToList();
       return result;
     }
 
