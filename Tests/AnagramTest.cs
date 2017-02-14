@@ -46,5 +46,18 @@ namespace Anagrams.Objects
       //Assert
       Assert.Equal(testAnagram.Check(verifyString), false);
     }
+    [Fact]
+    public void RandomizeReverseWords_ToRandomizeTheLettersIntoAnotherWord_String()
+    {
+      //Arrange
+      string input = "Hello";
+      Anagram testAnagram = new Anagram(input);
+      string outputString = testAnagram.RandomizeReverseString();
+      //Act
+      string verifyString = "eHllo";
+
+      //Assert
+      Assert.Equal(outputString, verifyString);
+    }
   }
 }

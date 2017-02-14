@@ -59,8 +59,8 @@ namespace Anagrams.Objects
       };
       var result = _inputList.Select(c => c.ToString()).ToList();
       result.Reverse();
-      _resverseOutput = string.Join( "", result.ToArray() );
-      return _resverseOutput;
+      _reverseOutput = string.Join( "", result.ToArray() );
+      return _reverseOutput;
     }
 
     public bool Check(string userString)
