@@ -8,8 +8,9 @@ namespace Anagrams.Objects
   {
     private string _input;
     public string _output = "";
-    public string _reverseOutput ="";
+    public string _userPhrase ="";
     public List<char> _inputList = new List<char>{};
+    public List<string> _outputList = new List<string>{};
 
     public Anagram (string newInput)
     {
@@ -25,7 +26,7 @@ namespace Anagrams.Objects
       _input = MyInput;
     }
 
-    public string RandomizeString()
+    public string SortString()
     {
       char[] inputArray = _input.ToCharArray();
       foreach (char letter in inputArray)
@@ -44,6 +45,20 @@ namespace Anagrams.Objects
       {return true;}
       else
       {return false;}
+    }
+
+    public List<string> SortSentence(string sentence, string _output) {
+      string[] splitSentence = sentence.Split(' ');
+      foreach (string word in splitSentence)
+      {
+        Anagram phrases = new Anagram(word);
+        _userPhrase = phrases.SortString();
+        if (_userPhrase == _output)
+        {
+          _outputList.Add(word);
+        }
+      }
+      return _outputList;
     }
   }
 }

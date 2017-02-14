@@ -13,14 +13,17 @@ namespace Anagrams.Objects
       //Arrange
       string input = "Hello";
       Anagram testAnagram = new Anagram(input);
-      string outputString = testAnagram.RandomizeString();
-      //Act
-      string otherInputField = "llHeo";
-      Anagram testAnagram2 = new Anagram(otherInputField);
-      string verifyString = testAnagram2.RandomizeString();
+      string outputString = testAnagram.SortString();
 
+      List<string> expectedOutput = new List<string>{"Hello"};
+
+      //Act
+      string otherInputField = "Hello my name is Elise olleH lloHe";
+      List<string> outputList = testAnagram.SortSentence(otherInputField, outputString);
+      foreach (string whatever in outputList)
+      {Console.WriteLine(whatever);};
       //Assert
-        Assert.Equal(Anagram.Check(verifyString, outputString), true);
+      Assert.Equal(expectedOutput, outputList);
     }
   }
 }
