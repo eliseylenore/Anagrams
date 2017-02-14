@@ -8,56 +8,19 @@ namespace Anagrams.Objects
   public class AnagramTest
   {
     [Fact]
-    public void Randomize_ToRandomizeTheLettersIntoAnotherWord_String()
-    {
-      //Arrange
-      string input = "Hello";
-      Anagram testAnagram = new Anagram(input);
-      List<string> outputList = testAnagram.Randomize();
-      //Act
-      List<string> verifyList = new List<string>{ "H","e","l","l","o" };
-
-      //Assert
-      Assert.Equal(outputList, verifyList);
-    }
-    [Fact]
-    public void RandomizeWords_ToRandomizeTheLettersIntoAnotherWord_String()
+    public void RandomizeWords_userInputandOurInput_true()
     {
       //Arrange
       string input = "Hello";
       Anagram testAnagram = new Anagram(input);
       string outputString = testAnagram.RandomizeString();
       //Act
-      string verifyString = "eHllo";
+      string otherInputField = "llHeo";
+      Anagram testAnagram2 = new Anagram(otherInputField);
+      string verifyString = testAnagram2.RandomizeString();
 
       //Assert
-      Assert.Equal(outputString, verifyString);
-    }
-    [Fact]
-    public void CheckWords_userInput_false()
-    {
-      //Arrange
-      string input = "Hello";
-      Anagram testAnagram = new Anagram(input);
-      string outputString = testAnagram.RandomizeString();
-      //Act
-      string verifyString = "Hello";
-
-      //Assert
-      Assert.Equal(testAnagram.Check(verifyString), false);
-    }
-    [Fact]
-    public void RandomizeReverseWords_ToRandomizeTheLettersIntoAnotherWord_String()
-    {
-      //Arrange
-      string input = "Hello";
-      Anagram testAnagram = new Anagram(input);
-      string outputString = testAnagram.RandomizeReverseString();
-      //Act
-      string verifyString = "eHllo";
-
-      //Assert
-      Assert.Equal(outputString, verifyString);
+        Assert.Equal(Anagram.Check(verifyString, outputString), true);
     }
   }
 }
