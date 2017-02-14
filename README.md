@@ -31,12 +31,12 @@ No known bugs
 
 ## Support and contact details
 
-Contact me at mphuong@kent.edu.
+Contact me at mphuong@kent.edu and eliseylenore@gmail.com
 
 ## Technologies Used
 
-HTML, CSS, Bootstrap, Javascript, jQuery
+HTML, Nancy, Razor, ASP.NET.
 
 ### License
 
-Copyright (c) 2017 *Minh Phuong*
+Copyright (c) 2017 *Minh Phuong and Elise St Hilaire*
